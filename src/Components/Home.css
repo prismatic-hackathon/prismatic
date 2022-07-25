@@ -1,0 +1,32 @@
+.Home {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-width: 100vw;
+  background-color: #313d5a;
+  align-items: center;
+  justify-content: center;
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+}
+
+.Logo {
+  height: 12vh;
+  width: 20vw;
+  max-width: 20vh;
+  background-color: white;
+  align-self: flex-start;
+  margin-bottom: 5vh;
+}
+
+.Selection {
+  background-color: #a3a3a3;
+  height: 43vh;
+  width: 20vw;
+  max-width: 20vh;
+}
