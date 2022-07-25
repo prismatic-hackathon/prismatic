@@ -13,7 +13,7 @@ function MapComponent() {
       center={[51.505, -0.09]}
       zoom={13}
       scrollWheelZoom={true}
-      style={{ height: '100vh' }}
+      style={{ height: '60vh' }}
     >
       <CenterComponent />
       <TileLayer
