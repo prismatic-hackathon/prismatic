@@ -10,8 +10,8 @@ function CenterComponent() {
 function MapComponent() {
   return (
     <MapContainer
-      center={[51.505, -0.09]}
-      zoom={13}
+      center={[39.23, -98.1]}
+      zoom={5}
       scrollWheelZoom={true}
       style={{ height: '60vh' }}
     >
