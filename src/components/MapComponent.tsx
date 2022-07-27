@@ -1,8 +1,12 @@
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 function CenterComponent() {
-  const leafletMap = useMap();
+  const leafletMap = useMapEvents({
+    moveend() {
+      console.log(leafletMap.getCenter());
+    },
+  });
   console.log('map center:', leafletMap.getCenter());
   return null;
 }
@@ -11,7 +15,7 @@ function MapComponent() {
   return (
     <MapContainer
       center={[39.23, -98.1]}
-      zoom={5}
+      zoom={3}
       scrollWheelZoom={true}
       style={{ height: '60vh' }}
     >
