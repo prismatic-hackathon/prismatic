@@ -1,13 +1,3 @@
 .App-link {
   color: #61dafb;
 }
-
-.MapSection {
-  margin: 2vw;
-}
-.Map {
-  border: 1px solid white;
-  height: 60vh;
-  width: 60vw;
-  max-width: 60vh;
-}

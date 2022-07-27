@@ -30,3 +30,14 @@
   width: 20vw;
   max-width: 20vh;
 }
+
+.MapSection {
+  margin: 2vw;
+}
+
+.Map {
+  border: 1px solid white;
+  height: 60vh;
+  width: 60vw;
+  max-width: 60vh;
+}
