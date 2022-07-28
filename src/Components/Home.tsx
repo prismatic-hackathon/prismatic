@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../App.css';
+import './Home.css';
+import MapComponent from './MapComponent';
 
 export default function Home() {
   const [birdToggle, setBirdToggle] = useState(true);
@@ -28,7 +29,7 @@ export default function Home() {
       </div>
       <div className="MapSection">
         <div className="Map">
-          <p>INSERT MAP</p>
+          <MapComponent />
         </div>
       </div>
     </div>
