@@ -5,7 +5,7 @@ import {
   TileLayer,
   useMapEvents,
 } from 'react-leaflet';
-import L from 'leaflet';
+import L, { LatLng } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
 
@@ -14,24 +14,34 @@ function getRandomArbitrary(min: number, max: number) {
 }
 
 function CenterComponent() {
-  const [position, setPosition] = useState(L.latLng(0, 0));
+  const [position, setPosition] = useState([L.latLng(0, 0)]);
   const leafletMap = useMapEvents({
     moveend() {
       const bounds = leafletMap.getBounds();
-      console.log(bounds);
-      const randomLat = getRandomArbitrary(
-        bounds.getNorth(),
-        bounds.getSouth()
-      );
-      const randomLong = getRandomArbitrary(bounds.getEast(), bounds.getWest());
-      const randomCoordinate = L.latLng(randomLat, randomLong);
-      setPosition(randomCoordinate);
+      const coordinates = [];
+      for (let i = 0; i < 10; i++) {
+        const randomLat = getRandomArbitrary(
+          bounds.getNorth(),
+          bounds.getSouth()
+        );
+        const randomLong = getRandomArbitrary(
+          bounds.getEast(),
+          bounds.getWest()
+        );
+        const randomCoordinate = L.latLng(randomLat, randomLong);
+        coordinates.push(randomCoordinate);
+      }
+      setPosition(coordinates);
     },
   });
-  return position === L.latLng(0, 0) ? null : (
-    <Marker position={position}>
-      <Popup>You are here</Popup>
-    </Marker>
+  return position === [L.latLng(0, 0)] ? null : (
+    <>
+      {position.map((coord: LatLng, index: number) => (
+        <Marker position={coord} key={index}>
+          <Popup>You are here</Popup>
+        </Marker>
+      ))}
+    </>
   );
 }
 
