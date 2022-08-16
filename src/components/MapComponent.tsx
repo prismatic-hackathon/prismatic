@@ -19,7 +19,7 @@ function CenterComponent() {
     moveend() {
       const bounds = leafletMap.getBounds();
       const coordinates = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 7; i++) {
         const randomLat = getRandomArbitrary(
           bounds.getNorth(),
           bounds.getSouth()
@@ -38,7 +38,7 @@ function CenterComponent() {
     <>
       {position.map((coord: LatLng, index: number) => (
         <Marker position={coord} key={index}>
-          <Popup>You are here</Popup>
+          <Popup position={coord}>You are here</Popup>
         </Marker>
       ))}
     </>
