@@ -1,13 +1,8 @@
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMapEvents,
-} from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet';
 import L, { LatLng } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
+import PopupComponent from './PopupComponent';
 
 function getRandomArbitrary(min: number, max: number) {
   return Math.random() * (max - min) + min;
@@ -19,7 +14,7 @@ function CenterComponent() {
     moveend() {
       const bounds = leafletMap.getBounds();
       const coordinates = [];
-      for (let i = 0; i < 7; i++) {
+      for (let i = 0; i < 1; i++) {
         const randomLat = getRandomArbitrary(
           bounds.getNorth(),
           bounds.getSouth()
@@ -38,7 +33,7 @@ function CenterComponent() {
     <>
       {position.map((coord: LatLng, index: number) => (
         <Marker position={coord} key={index}>
-          <Popup position={coord}>You are here</Popup>
+          <PopupComponent position={coord}></PopupComponent>
         </Marker>
       ))}
     </>
