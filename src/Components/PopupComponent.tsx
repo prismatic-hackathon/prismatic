@@ -6,7 +6,6 @@ function HistoricalTempComponent(props: any) {
   const [temperature, setTemperature] = useState(0);
   const leafletMap = useMapEvents({
     async popupopen(e) {
-      console.log(e.propagatedFrom);
       console.log(leafletMap.getCenter());
       const getHistoricalTemp = await weatherService.getHistorical(
         props.position
@@ -22,13 +21,7 @@ function HistoricalTempComponent(props: any) {
 
 function PopupComponent(props: any) {
   return (
-    <Popup
-      eventHandlers={{
-        click: () => {
-          console.log('hopefully just one');
-        },
-      }}
-    >
+    <Popup>
       The weather is
       <HistoricalTempComponent
         position={props.position}
