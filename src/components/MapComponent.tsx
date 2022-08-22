@@ -11,10 +11,10 @@ function getRandomArbitrary(min: number, max: number) {
 function CenterComponent() {
   const [position, setPosition] = useState([L.latLng(0, 0)]);
   const leafletMap = useMapEvents({
-    moveend() {
+    zoomend() {
       const bounds = leafletMap.getBounds();
       const coordinates = [];
-      for (let i = 0; i < 1; i++) {
+      for (let i = 0; i < 7; i++) {
         const randomLat = getRandomArbitrary(
           bounds.getNorth(),
           bounds.getSouth()
